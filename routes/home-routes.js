@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         const plainArticlesData = dbArticlesData.map((articles) =>
             articles.get({ plain: true })
         );
-        // // pass serialized data and session flag into template
+        // pass serialized data and session flag into template
         res.render('homepage', {
             plainArticlesData // somehow this is pulling article_id ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MUST FIX THIS
         });
@@ -47,6 +47,8 @@ router.get('/articles/:id', withAuth, async (req, res) => {
             plainArticleData,
             loggedIn: true
         });
+        // test to see if data is getting pulled
+        // res.status(200).json(plainArticleData);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
