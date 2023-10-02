@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-auto">
+        <h2>Welcome, {{user_name}}!</h2>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h3>Create a New Article</h3>
+
+        {{!-- need to include a new page with this form stuff --}}
+        {{!-- <form class="form new-project-form">
+            <div class="form-group">
+                <label for="project-name">project name:</label>
+                <input class="form-input" type="text" id="project-name" name="project-name" />
+            </div>
+            <div class="form-group">
+                <label for="project-funding">needed funding ($):</label>
+                <input class="form-input" type="number" id="project-funding" name="project-funding" />
+            </div>
+            <div class="form-group">
+                <label for="project-desc">description:</label>
+                <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form> --}}
+    </div>
+
+    {{#if articles.length}}
+    <div class="col-md-6 project-list">
+        <h3>Current Articles:</h3>
+
+        {{#each articles as |article|}}
+        <div class="row mb-2">
+            <div class="col-md-8">
+                <h4><a href="/project/{{article.id}}">{{article.title}}</a></h4>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-sm btn-danger" data-id="{{article.id}}">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+<script src="./js/dashboard.js"></script>
