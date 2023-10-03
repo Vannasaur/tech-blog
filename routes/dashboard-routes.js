@@ -36,6 +36,12 @@ router.get('/', withAuth, async (req, res) => {
             where: {
                 user_id: req.session.user_id
             },
+            attributes: [
+                'id',
+                'title',
+                'content',
+                'created_at'
+            ],
             include: [
                 {
                     model: Users,
@@ -46,7 +52,7 @@ router.get('/', withAuth, async (req, res) => {
                     include: [
                         {
                             model: Users,
-                            attribute: ['user_name']
+                            attributes: ['user_name']
                         }
                     ]
                 }
@@ -56,7 +62,7 @@ router.get('/', withAuth, async (req, res) => {
     console.log(userDashboard);
     res.render('dashboard', {
         userDashboard,
-        loggedIn: req.session.loggedIn
+        loggedIn: true
     });
 } catch (err) {
     res.status(500).json(err);
