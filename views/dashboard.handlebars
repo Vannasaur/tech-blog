@@ -1,47 +1,30 @@
-<div class="row">
+<div class="row text-center">
     <div class="col-auto">
-        <h2>Welcome, {{this.user}}!</h2>
+        <h2>Welcome, {{userDashboard.[0].user.user_name}}!</h2>
     </div>
 </div>
 
-<div class="row mt-4">
-    <div class="col-md-6">
-        <h3>Create a New Article</h3>
-
-        {{!-- need to include a new page with this form stuff --}}
-        {{!-- <form class="form new-project-form">
-            <div class="form-group">
-                <label for="project-name">project name:</label>
-                <input class="form-input" type="text" id="project-name" name="project-name" />
-            </div>
-            <div class="form-group">
-                <label for="project-funding">needed funding ($):</label>
-                <input class="form-input" type="number" id="project-funding" name="project-funding" />
-            </div>
-            <div class="form-group">
-                <label for="project-desc">description:</label>
-                <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form> --}}
+<div class="text-center">
+    <div class="col-md-12">
+        <h4>
+            <a href="/dashboard/new">Create a New Article</a>
+        </h4>
     </div>
+</div>
+<div class="col-md-12">
+    <h3>Current Articles:</h3>
 
-    <div class="col-md-6 article-list">
-        <h3>Current Articles:</h3>
-
-        {{#each userDashboard}}
-        <div class="row mb-2">
+    {{#each userDashboard}}
+        <div class="row">
             <div class="col-md-8">
-                <h4><a href="/articles/{{this.id}}">{{this.title}}</a></h4>
+                <h5><a href="/articles/{{this.id}}">{{this.title}}</a></h5>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{this.id}}">Delete Article</button>
+                <a href="/dashboard/edit/{{this.id}}" type="button" class="btn btn-warning">Edit</a>
             </div>
         </div>
-        {{/each}}
-    </div>
+    {{/each}}
 </div>
 
-<script src="./js/dashboard.js"></script>
+
+<script src="./js/.js"></script>
