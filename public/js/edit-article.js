@@ -8,11 +8,11 @@ const saveEditBtnHandler = async (event) => {
     console.log(content);
 
     const id = event.target.getAttribute('data-id');
-
-    const response = await fetch('/api/articles/${id}', {
+    console.log(id);
+    const response = await fetch(`/api/articles/edit/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            //article_id: id,
+            article_id: id,
             title,
             content
         }),
@@ -25,6 +25,7 @@ const saveEditBtnHandler = async (event) => {
         document.location.replace('/dashboard/');
     } else {
         alert('Failed to update article');
+        console.log(response.statusText)
     }
 };
 

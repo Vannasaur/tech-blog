@@ -22,11 +22,12 @@ router.post('/new', withAuth, async (req, res) => {
 });
 
 // update previous articles(blogposts)
-router.get('/edit/:id', withAuth, async (req, res) => {
+router.put('/edit/:id', withAuth, async (req, res) => {
     try {
         const editArticle = await Articles.update({
             title: req.body.title,
             content: req.body.content,
+            user_id: req.session.user_id,
         },
         {
             where: {
