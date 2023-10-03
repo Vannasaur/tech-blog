@@ -1,22 +1,3 @@
-// const express = require('express');
-// const routes = require('./routes');
-// const sequelize = require('./config/connection')
-// //import sequelize connection
-
-// const app = express();
-// const PORT = process.env.PORT || 3001;
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-// app.use(routes);
-
-// //sync sequelize models to the database, then turn on the server
-// sequelize.sync({ force: false }).then(() => {
-//     app.listen(PORT, () => console.log('Now Listening'))
-// })
-
-
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -36,10 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
     secret: 'Super secret secret',
     cookie: {
-        maxAge: 300000,
-        // httpOnly: true,
-        // secure: false,
-        // sameSite: 'strict',
+        maxAge: 1000 * 60 * 60,
     },
     resave: false,
     saveUninitialized: true,

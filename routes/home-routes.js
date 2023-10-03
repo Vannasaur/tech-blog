@@ -6,15 +6,7 @@ const withAuth = require('../utils/auth')
 router.get('/', async (req, res) => {
     try {
         // get all articles and JOIN with user data (user name)
-        const dbArticlesData = await Articles.findAll({
-            // should we include username data??
-            // include: [
-            //     {
-            //         model: Users,
-            //         attributes: ['user_name'],
-            //     },
-            // ],
-        });
+        const dbArticlesData = await Articles.findAll();
         // serialize data so the template can read it
         const plainArticlesData = dbArticlesData.map((articles) =>
             articles.get({ plain: true })
@@ -22,8 +14,8 @@ router.get('/', async (req, res) => {
         
         // pass serialized data and session flag into template
         res.render('homepage', {
-            plainArticlesData, // somehow this is pulling article_id ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MUST FIX THIS
-            //logged_in: req.sessions.logged_in ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ do i need this??
+            plainArticlesData,
+            loggedIn: req.session.loggedIn,
         });
         // test to see if data is getting pulled
         //es.status(200).json(plainArticlesData);
@@ -56,7 +48,7 @@ router.get('/articles/:id', withAuth, async (req, res) => {
         const plainArticleData = dbArticleData.get({ plain: true });
         res.render('articles-page', {
             ...plainArticleData,
-            logged_in: true
+            loggedIn: true
         });
         // test to see if data is getting pulled
         // res.status(200).json(plainArticleData);
