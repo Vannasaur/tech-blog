@@ -30,5 +30,5 @@ const saveEditBtnHandler = async (event) => {
 
 // update btn listener
 document
-    .querySelector('.edit-article')
+    .querySelector('.article-edit')
     .addEventListener('click', saveEditBtnHandler);

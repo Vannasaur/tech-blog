@@ -17,9 +17,9 @@ router.get('/new', withAuth, async (req, res) => {
 // edit post
 router.get('/edit/:id', withAuth, async (req, res) => {
     try {
-        const editPostData = await Articles.findByPk(req.params.id)
-        const editPost = editPostData.get({ plain: true })
-        res.render('edit-article',{ editPost })
+        const editArticleData = await Articles.findByPk(req.params.id)
+        const editArticle = editArticleData.get({ plain: true })
+        res.render('edit-article',{ editArticle })
         // res.status(200).json(newArticle);
     } catch (err) {
         res.status(400).json(err);

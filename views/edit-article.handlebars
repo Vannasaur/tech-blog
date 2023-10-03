@@ -3,17 +3,18 @@
     <form class="card-body edit-article-form">
         <div class="form-row">
         <label for="article-title" class="form-label">Title</label>
-        <input name="article-title" type="text" value="{{editPost.title}}" class="form-input form-control"/>
+        <input name="article-title" type="text" value="{{editArticle.title}}" class="form-input form-control"/>
         </div>
 
         <div class="form-row">
         <label class="form-label" for="content">Content</label>
-        <input name="content" type="text" value="{{editPost.content}}" class="form-input form-control"/>
+        <input name="content" type="text" value="{{editArticle.content}}" class="form-input form-control"/>
         </div>
 {{!-- save btn --}}
-        <button type="submit" class="btn btn-primary article-edit" data-id="{{editPost.id}}">Save</button>
+        <button type="submit" class="btn btn-primary article-edit" data-id="{{editArticle.id}}">Save</button>
 {{!-- delete btn --}}
-        <button class="btn btn-sm btn-danger article-list" data-id="{{editPost.id}}">Delete Article</button>
+        <button class="btn btn-danger article-list" data-id="{{editArticle.id}}">Delete Article</button>
     </form>
 
 <script src="/js/delete-articles.js"></script>
+<script src="/js/edit-articles.js"></script>
