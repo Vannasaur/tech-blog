@@ -1,18 +1,18 @@
-// update button handler
+// save edit button handler
 const saveEditBtnHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="article-title"]').value.trim();
-    const content = document.querySelector('input[name="content"]').value.trim();
+    const title = document.querySelector('#edit-article-title').value.trim();
+    const content = document.querySelector('#edit-article-content').value.trim();
     console.log(title);
     console.log(content);
 
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/articles/${id}`, {
+    const response = await fetch('/api/articles/${id}', {
         method: 'PUT',
         body: JSON.stringify({
-            article_id: id,
+            //article_id: id,
             title,
             content
         }),

@@ -3,12 +3,12 @@
     <form class="card-body edit-article-form">
         <div class="form-row">
         <label for="article-title" class="form-label">Title</label>
-        <input name="article-title" type="text" value="{{editArticle.title}}" class="form-input form-control"/>
+        <input name="article-title" type="text" value="{{editArticle.title}}" class="form-input form-control" id="edit-article-title"/>
         </div>
 
         <div class="form-row">
         <label class="form-label" for="content">Content</label>
-        <input name="content" type="text" value="{{editArticle.content}}" class="form-input form-control"/>
+        <textarea name="content" type="text" class="form-input form-control" id="edit-article-content">{{editArticle.content}}</textarea>
         </div>
 {{!-- save btn --}}
         <button type="submit" class="btn btn-primary article-edit" data-id="{{editArticle.id}}">Save</button>
