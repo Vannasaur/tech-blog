@@ -96,3 +96,6 @@ N/A
 Please refer to my profile for additional projects: https://github.com/Vannasaur
 
 If you have any questions please email me at: vannaluciano@gmail.com
+
+![B1E16F29-8D26-4041-9380-855020B7F1B0_1_201_a](https://github.com/Vannasaur/tech-blog/assets/141793843/7f8187bb-500f-471f-9080-80e2dd137538)
+![0CC1CF27-41DB-4197-A8EE-C141281C4EFD_1_201_a](https://github.com/Vannasaur/tech-blog/assets/141793843/3704a35a-292f-4701-99c6-7be2be47f935)
