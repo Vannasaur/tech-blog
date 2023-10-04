@@ -32,20 +32,21 @@ router.get('/articles/:id', withAuth, async (req, res) => {
         const dbArticleData = await Articles.findByPk(req.params.id, {
             include: [
                 {
+                    model: Users,
+                    attributes: ['user_name']
+                },
+                {
                     model: Comments,
-                    include: [
-                        {
+                    include: [{
                             model: Users,
-                            attributes: [
-                                'user_name'
-                            ]
-                        }
-                    ]
+                            attributes: ['user_name']
+                        }]
                 },
             ],
         });
 
         const plainArticleData = dbArticleData.get({ plain: true });
+        console.log(plainArticleData);
         res.render('articles-page', {
             ...plainArticleData,
             loggedIn: true

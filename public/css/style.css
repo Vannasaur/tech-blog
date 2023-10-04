@@ -17,3 +17,7 @@ header,
     color: #065b83;
     text-decoration: underline;
 }
+
+#comment-content {
+    width: 100%;
+}

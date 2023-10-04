@@ -60,6 +60,7 @@ router.get('/', withAuth, async (req, res) => {
         console.log(userDashboard);
         res.render('dashboard', {
             userDashboard,
+            user_name: req.session.username,
             loggedIn: true
         });
     } catch (err) {

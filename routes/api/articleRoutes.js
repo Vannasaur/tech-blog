@@ -67,11 +67,23 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
-// //  post comment
-// router.post('/comment', withAuth, async (req, res) => {
-//     try {
-//         const { }
-//     }
-// })
+//  post comment
+router.post('/comment', withAuth, async (req, res) => {
+    try {
+        console.log(req.session.user_id);
+        const { id, content } = req.body;
+        const addComment = await Comments.create({
+            article_id:id,
+            content,
+            user_id: req.session.user_id
+        });
+        if (!addComment) {
+            res.status(400).json({message: 'Failed to add comment.'});
+        }
+        res.status(200).json(addComment)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;

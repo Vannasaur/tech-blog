@@ -1,8 +1,32 @@
 <div class="text-center">
     <h2>{{title}}</h2>
     <p>{{content}}</p>
-    <p>Created by {{users.user_name}} on {{format_date createdAt}}</p>
+    <p>Created by {{user.user_name}} on {{format_date createdAt}}</p>
+</div>
+<div>
+    {{#each comments}}
+    <div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        {{this.content}}
+                    </p>
+                    <p>by {{user.user_name}} on {{format_date this.createdAt}}</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <textarea class="form-input" id="comment-content" name="comment-content"rows="4"></textarea>
+    </div>
     <p>
-        <button class="btn btn-primary">Add a comment</button>
+        <button type="submit" class="btn btn-primary" id="comment-btn" data-id="{{this.id}}">Add a comment</button>
     </p>
 </div>
+
+<script src="/js/comment-add.js"></script>
